@@ -1,6 +1,8 @@
 let homePage = document.getElementById("homePage")
 let startButton = document.getElementById("start").addEventListener("click", questionOne);
 let questionTwoButton = document.getElementById("passq2").addEventListener("click", questionTwo);
+let questionTwoButton = document.getElementById("passq3").addEventListener("click", questionTwo);
+
 //let questionThreeButton = document.getElementById("passq3").addEventListener("click", questionThree);
 
 
