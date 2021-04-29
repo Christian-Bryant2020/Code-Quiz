@@ -1,25 +1,36 @@
 let homePage = document.getElementById("homePage")
 let startButton = document.getElementById("start").addEventListener("click", questionOne);
-let questionTwoButton = document.getElementById("passq2").addEventListener("click", questionTwo);
-let questionTwoButton = document.getElementById("passq3").addEventListener("click", questionTwo);
+let choiceOne = document.getElementById("c1");
+const questions = [
+  {
+    question: "Words for question one",
+    options: {
+      1: 'one',
+      2: 'two',
+      3: 'three'
+    },
+    correctAnswer: '3'
+  },
+  {
+    question: "Words for question one",
+    options: {
+      1: 'one',
+      2: 'two',
+      3: 'three'
+    },
+    correctAnswer: '3'
+  },
+  {
+    question: "Words for question one",
+    options: {
+      1: 'one',
+      2: 'two',
+      3: 'three'
+    },
+    correctAnswer: '3'
+  }
+]
 
-//let questionThreeButton = document.getElementById("passq3").addEventListener("click", questionThree);
-
-
-function questionOne() {
-  document.getElementById('homePage').innerHTML = document.getElementById('questionOne').innerHTML;
-    if(document.getElementById('q1c2').clicked)
-  console.log('yes')
-  else(
-  console.log('no'))
-}
-function questionTwo(){
-  document.getElementById('questionOne').innerHTML = document.getElementById('questionTwo').innerHTML;
-    if(document.getElementById('q1c2').clicked)
-  console.log('yes')
-  else(
-  console.log('no'))
-}
 
 // let questionOne = 
 // let secondsLeft = "90";
@@ -39,3 +50,6 @@ function questionTwo(){
 //       }
 //     }, 1000);
 //   }
+funciton answer(){
+if(choiceOne)
+};
