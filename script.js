@@ -1,7 +1,10 @@
-let homePage = document.getElementById("homePage")
-let startButton = document.getElementById("start").addEventListener("click", questionOne);
-let choiceOne = document.getElementById("c1");
-const questions = [
+let quizContainer = document.getElementById("quizContainer");
+let submitButton = document.getElementById('submit');
+let startButton = document.getElementById("start-btn");
+
+startButton.addEventListener("click", quizStart);
+
+let questions = [
   {
     question: "Words for question one",
     options: {
@@ -29,27 +32,17 @@ const questions = [
     },
     correctAnswer: '3'
   }
-]
+];
 
-
-// let questionOne = 
-// let secondsLeft = "90";
-// let startTimer = document.querySelector("#timer")
-// let time = document.querySelector("#time");
-
-// time = 15;
-
-// function setTime() {
-//     var timerInterval = setInterval(function() {
-//       secondsLeft--;
-//       timer.textContent = secondsLeft + " seconds left till colorsplosion.";
-//   console.log(secondsLeft);
-//       if(secondsLeft === 0) {
-//         clearInterval(timerInterval);
-//         sendMessage();
-//       }
-//     }, 1000);
-//   }
-funciton answer(){
-if(choiceOne)
+function quizStart(){
+  quizContainer.innerHTML = questions[0].options[1];
+  console.log(quizContainer)
 };
+
+// funciton nextQuestion(){
+// };
+
+// function selectAnswer(){
+// };
+
+console.log(quizContainer)
