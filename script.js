@@ -1,51 +1,54 @@
-const quizContainer = document.getElementById("quizContainer");
-const submitButton = document.getElementById('submit');
-const startButton = document.getElementById("start-btn");
-const welcomeContainer = document.getElementById("welcome-text")
-const answerButtonsElement = document.getElementById("answer-buttons")
-let questionElement = document.getElementById("question")
-let shuffledQuestions, currentQuestionIndex
-
-let questions = [
-  {
-     question: 'What is JavaScript?',
-     answers: [
-       { text: 'correct', correct: true },
-       { text: 'false', correct: false },
-       { text: 'false', correct: false },
-       { text: 'false', correct: false },
-     ]
-   }
-  ];
+let quizContainer = document.getElementById("quizContainer");
+let submitButton = document.getElementById('submit');
+let startButton = document.getElementById("start");
+let timer = document.getElementById("timer");
+let timerLeft = 60;
 
 startButton.addEventListener("click", quizStart);
 
-function quizStart() {
-  startButton.classList.add('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
-  quizContainer.classList.remove('hide')
-  nextQuestion()
+let questions = [
+  {
+    question: "Words for question one",
+    options: {
+      1: 'one',
+      2: 'two',
+      3: 'three'
+    },
+    correctAnswer: '3'
+  },
+  {
+    question: "Words for question one",
+    options: {
+      1: 'one',
+      2: 'two',
+      3: 'three'
+    },
+    correctAnswer: '3'
+  },
+  {
+    question: "Words for question one",
+    options: {
+      1: 'one',
+      2: 'two',
+      3: 'three'
+    },
+    correctAnswer: '3'
+  }
+];
+
+function quizStart(){
+  quizContainer.innerHTML = questions[0].options[1];
+  console.log(quizContainer)
 };
 
- function nextQuestion() {
-  showQuestion(shuffledQuestions[currentQuestionIndex])
-};
+function setTimmer(){
+  timeInterval = setInterval(function(){
+    timer.textContent = timerLeft;
+    timerLeft--;
 
- function showQuestion(question) {
-   questionElement.innerText = questions.question
-  //  question.answers.forEach(answers => {
-  //    const button = document.createElement('button')
-  //    button.inerText = answers.textbutton.classList.add('btn')
-  //    if (answers.correct) {
-  //      button.dataset.correct = answers.correct
-  //    }
-  //    button.addEventListener('click', selectAnswer)
-  //    answerButtonsElement.appendChild(button)
-  //  })
- }
- 
-
-
-function selectAnswer(){
-};
+    if(timerLeft === 0){
+      displayScores();
+    }
+  })
+}
+console.log(quizContainer)
