@@ -12,27 +12,27 @@ let allBtn = document.querySelectorAll(".btn-outline-primary")
 let questions = [
   {
     question: "This is the text for question one",
-    choices: ["Don't choose this", "Don't choose this", "Don't choose this", "correct"],
+    choices: ["Q1: Don't choose this", "Q1: Don't choose this", "Q1: Don't choose this", "Q1: correct"],
     values: ["incorrect", "incorrect", "incorrect", "correct"],
-    answer: "correct"
+    answer: "Q1: correct"
   },
   {
     question: "This is the text for question two",
-    choices: ["Don't choose this", "Don't choose this", "correct", "Don't choose this"],
+    choices: ["Q2: Don't choose this", "Q2: Don't choose this", "Q2: correct", "Q2: Don't choose this"],
     values: ["incorrect", "incorrect", "correct", "incorrect"],
-    answer: "correct"
+    answer: "Q2: correct"
   },
   {
     question: "This is the text for question three",
-    choices: ["Don't choose this", "Don't choose this", "correct", "Don't choose this"],
+    choices: ["Q3: correct", "Q3: Don't choose this", "Q3: Don't choose this", "Q3: Don't choose this"],
     values: ["correct", "incorrect", "incorrect", "incorrect"],
-    answer: "correct"
+    answer: "Q3: correct"
   },
   {
     question: "This is the text for question four",
-    choices: ["Don't choose this", "Don't choose this", "Don't choose this", "correct"],
+    choices: ["Q4: Don't choose this", "Q4: Don't choose this", "Q4: Don't choose this", "Q4: correct"],
     values: ["incorrect", "correct", "incorrect", "incorrect"],
-    answer: "correct"
+    answer: "Q4: correct"
   }
 ];
 
@@ -47,7 +47,6 @@ function quizStart() {
     answerChoices = document.createElement("btn");
     brLine = document.createElement("br");
     answerChoices.setAttribute("class", "btn btn-outline-primary");
-    answerChoices.setAttribute("value", questions[arrayIndex].values[i]);
     answerChoices.textContent = questions[arrayIndex].choices[i];
     answerChoices.onclick = validateAnswer;
     answers.append(answerChoices);
@@ -56,29 +55,24 @@ function quizStart() {
 };
 
 function validateAnswer() {
-  //console.log(allBtn)
-  //console.log(this.value)
-  console.log(this.textContent)
-
-
   if (this.textContent === questions[arrayIndex].answer) {
     alert("Correct!");
     score++
-    arrayIndex++;
     nextQuestion();
-  } else {
-    arrayIndex++;
+  } 
+  else {
     alert("Incorrect!")
     nextQuestion();
   }
 };
 
 function nextQuestion() {
+  arrayIndex++;
   if (arrayIndex < 4) {
     quizContainer.textContent = questions[arrayIndex].question;
     for (i = 0; i < questions.length; i++) {
-      document.getElementsByClassName("btn-outline-primary")[i].textContent = questions[2].choices[i];
-      document.getElementsByClassName("btn-outline-primary")[i].setAttribute("value", questions[2].values[i]);
+      document.getElementsByClassName("btn-outline-primary")[i].textContent = questions[arrayIndex].choices[i];
+      document.getElementsByClassName("btn-outline-primary")[i].setAttribute("value", questions[arrayIndex].values[i]);
     }
   }
   else {
