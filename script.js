@@ -8,26 +8,31 @@ let score = 0;
 let welcomeText = document.getElementById("welcome-text")
 let arrayIndex = 0;
 let answers = document.getElementById("answer-options")
+let allBtn = document.querySelectorAll(".btn-outline-primary")
 let questions = [
   {
     question: "This is the text for question one",
     choices: ["Don't choose this", "Don't choose this", "Don't choose this", "correct"],
-    values: ["incorrect", "incorrect", "incorrect", "correct"]
+    values: ["incorrect", "incorrect", "incorrect", "correct"],
+    answer: "correct"
   },
   {
     question: "This is the text for question two",
     choices: ["Don't choose this", "Don't choose this", "correct", "Don't choose this"],
-    values: ["incorrect", "incorrect", "correct", "incorrect"]
+    values: ["incorrect", "incorrect", "correct", "incorrect"],
+    answer: "correct"
   },
   {
     question: "This is the text for question three",
     choices: ["Don't choose this", "Don't choose this", "correct", "Don't choose this"],
-    values: ["incorrect", "incorrect", "correct", "incorrect"]
+    values: ["correct", "incorrect", "incorrect", "incorrect"],
+    answer: "correct"
   },
   {
     question: "This is the text for question four",
     choices: ["Don't choose this", "Don't choose this", "Don't choose this", "correct"],
-    values: ["incorrect", "incorrect", "incorrect", "correct"]
+    values: ["incorrect", "correct", "incorrect", "incorrect"],
+    answer: "correct"
   }
 ];
 
@@ -42,33 +47,30 @@ function quizStart() {
     answerChoices = document.createElement("btn");
     brLine = document.createElement("br");
     answerChoices.setAttribute("class", "btn btn-outline-primary");
-    answerChoices.setAttribute("status", questions[arrayIndex].values[i]);
+    answerChoices.setAttribute("value", questions[arrayIndex].values[i]);
     answerChoices.textContent = questions[arrayIndex].choices[i];
+    answerChoices.onclick = validateAnswer;
     answers.append(answerChoices);
     answers.append(brLine);
   }
-  validateAnswer();
 };
 
 function validateAnswer() {
-  let allBtn = document.querySelectorAll(".btn-outline-primary")
-  allBtn.forEach(function (allBtn) {
-    allBtn.addEventListener("click", function () {
-      console.log(allBtn)
-      console.log(this.status)
+  //console.log(allBtn)
+  //console.log(this.value)
+  console.log(this.textContent)
 
-      if (this.status == "correct") {
-        alert("Correct!");
-        score++
-        arrayIndex++;
-        nextQuestion();
-      } else {
-        arrayIndex++;
-        alert("Incorrect!")
-        nextQuestion();
-      }
-    })
-  })
+
+  if (this.textContent === questions[arrayIndex].answer) {
+    alert("Correct!");
+    score++
+    arrayIndex++;
+    nextQuestion();
+  } else {
+    arrayIndex++;
+    alert("Incorrect!")
+    nextQuestion();
+  }
 };
 
 function nextQuestion() {
@@ -86,13 +88,11 @@ function nextQuestion() {
 
 function displayScores() {
   clearInterval(timeInterval);
+  answers.classList.add("hide");
   quizContainer.textContent = ("GG! Your score is " + score);
 }
 
 function setTimmer() {
-  console.log(
-    'started'
-  )
   timeInterval = setInterval(function () {
     timer.textContent = "Time left: " + timerLeft;
     timerLeft--;
