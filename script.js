@@ -11,27 +11,27 @@ let answers = document.getElementById("answer-options")
 let allBtn = document.querySelectorAll(".btn-outline-primary")
 let questions = [
   {
-    question: "This is the text for question one",
-    choices: ["Q1: Don't choose this", "Q1: Don't choose this", "Q1: Don't choose this", "Q1: correct"],
-    values: ["incorrect", "incorrect", "incorrect", "correct"],
-    answer: "Q1: correct"
+    question: "Which of the following is an advantage of using JavaScript?",
+    choices: ["Less server interaction", "Immediate feedback to the visitors", "Increased interactivity", "All of the above."],
+    values: ["Less server interaction", "Immediate feedback to the visitors", "Increased interactivity", "All of the above."],
+    answer: "All of the above."
   },
   {
-    question: "This is the text for question two",
-    choices: ["Q2: Don't choose this", "Q2: Don't choose this", "Q2: correct", "Q2: Don't choose this"],
-    values: ["incorrect", "incorrect", "correct", "incorrect"],
-    answer: "Q2: correct"
+    question: "Which built-in method adds one or more elements to the end of an array and returns the new length of the array?",
+    choices: ["last()", "put()", "push()", "None of the above."],
+    values: ["last()", "put()", "push()", "None of the above."],
+    answer: "push()"
   },
   {
-    question: "This is the text for question three",
-    choices: ["Q3: correct", "Q3: Don't choose this", "Q3: Don't choose this", "Q3: Don't choose this"],
-    values: ["correct", "incorrect", "incorrect", "incorrect"],
-    answer: "Q3: correct"
+    question: "Which built-in method reverses the order of the elements of an array?",
+    choices: ["changeOrder(order)", "reverse()", "sort(order)", "None of the above."],
+    values: ["changeOrder(order)", "reverse()", "sort(order)", "None of the above."],
+    answer: "reverse()"
   },
   {
-    question: "This is the text for question four",
-    choices: ["Q4: Don't choose this", "Q4: Don't choose this", "Q4: Don't choose this", "Q4: correct"],
-    values: ["incorrect", "correct", "incorrect", "incorrect"],
+    question: "Which of the following function of String object is used to match a regular expression against a string?",
+    choices: ["concat()", "match()", "search()", "replace()"],
+    values: ["concat()", "match()", "search()", "replace()"],
     answer: "Q4: correct"
   }
 ];
